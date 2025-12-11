@@ -1,0 +1,31 @@
+# This workflow is used to release a new version of the program
+
+name: Release Build
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build and upload
+        run: make
+
+      - name: List files
+        run: ls -lah
+
+      - name: Upload executable to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./program        # File to use
+          asset_name: program          # Name of the file
+          asset_content_type: application/octet-stream

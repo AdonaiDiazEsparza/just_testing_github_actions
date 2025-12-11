@@ -16,7 +16,7 @@ OBJS = $(SRCS:.c=.o)
 TARGET = program
 
 # Regla principal (se ejecuta con 'make')
-all: clean $(TARGET) execute
+all: clean $(TARGET)
 
 # Regla para enlazar los objetos y crear el ejecutable
 $(TARGET): $(OBJS)

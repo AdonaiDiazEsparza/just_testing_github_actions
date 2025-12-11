@@ -17,9 +17,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    # Checkout repo
+    - name: Checkout repo
+      uses: actions/checkout@v4
+      
+    # Build
     - name: Build
       run: make
 
+    # Run program
     - name: Run program
       run: ./program
 

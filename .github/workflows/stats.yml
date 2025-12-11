@@ -1,0 +1,26 @@
+# Name of the github action
+name: Stats
+
+# This part works to know when it will execute the github action
+on:
+
+# Always on push
+  push:
+    branches: [ "main" ]
+
+# Here it indicates the jobs to do
+jobs:
+
+# build your code
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build
+      run: make
+
+    - name: Run program
+      run: ./program
+
+    

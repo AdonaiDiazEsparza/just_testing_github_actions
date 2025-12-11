@@ -4,10 +4,12 @@ You can find the worflows examples for C on the .github folder, the distribution
 ```
 ├── .github
 │   └── workflows
+│       ├── release.yml
 │       └── stats.yml
 ├── .gitignore
 ├── main.c
 ├── Makefile
 └── README.md
 ```
-The **stats.yml** only handle the actions when you push a commit
+The **stats.yml** only handles the actions when you push a commit
+The **release.yml** only handles the action when you do a release
